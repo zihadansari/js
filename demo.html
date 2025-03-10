@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KeyUp Event</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-align: center;
+      }
+
+      input {
+        padding: 10px;
+        margin: 10px;
+        width: 200px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Live Search</h1>
+    <p>Search for fruits:</p>
+    <input type="text" id="search" placeholder="Type to search..." />
+    <ul id="itemlist">
+      <li>Apple</li>
+      <li>Banana</li>
+      <li>Cherry</li>
+      <li>Date</li>
+      <li>Fig</li>
+      <li>Grape</li>
+      <li>Kiwi</li>
+    </ul>
+
+    <script>
+      documet.getElementById("search").addEventListener("keyup", function () {
+        let filter = this.value.toLowerCase();
+        let items = document.querySelectorAll("#itemlist li");
+        items.forEach(function (item) {
+          if (item.innerText.toLowerCase().includes(filter)) {
+            item.style.display = "";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

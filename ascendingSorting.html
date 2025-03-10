@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ascending Sorting</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-align: center;
+      }
+      input {
+        padding: 10px;
+        margin: 10px;
+        width: 200px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      #result {
+        font-size: 17px;
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sorting Number</h1>
+    <h3>Enter Number</h3>
+    <input type="text" id="findNum" placeholder="e.g. 10,20,30,2" /><button
+      type="button"
+      onclick="sortNumber()"
+    >
+      Sorting Number
+    </button>
+    <p id="result"></p>
+
+    <script>
+      function sortNumber() {
+        var num = document.getElementById("findNum").value;
+        var arr = num.split(",").map((number) => parseInt(number.trim()));
+        var sortedArr = arr.sort((a, b) => a - b);
+        document.getElementById("result").innerHTML =
+          "Ascending Sorted Number is: " + sortedArr;
+      }
+    </script>
+  </body>
+</html>

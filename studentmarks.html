@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student result</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      input {
+        padding: 7px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Student result</h1>
+      Student Marks: <input type="number" id="marks" />
+      <button onclick="studentMarks()">Check</button>
+      <p id="result"></p>
+    </div>
+    <script>
+      function studentMarks() {
+        let marks = document.getElementById("marks").value;
+        let result = document.getElementById("result");
+
+        if (marks >= 80) {
+          result.innerHTML = "Student grade is 'A+'";
+          result.style.color = "green";
+        } else if (marks >= 70) {
+          result.innerHTML = "Student  grade is 'A'";
+          result.style.color = "blue";
+        } else if (marks >= 60) {
+          result.innerHTML = "Student grade is 'B'";
+          result.style.color = "purple";
+        } else {
+          result.innerHTML = "Failed";
+          result.style.color = "red";
+        }
+      }
+    </script>
+  </body>
+</html>

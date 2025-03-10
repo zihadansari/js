@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Largest Number</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-align: center;
+      }
+
+      input {
+        padding: 10px;
+        margin: 10px;
+        width: 200px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      #result {
+        font-size: 17px;
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Largest Number</h1>
+    <h3>Enter Number</h3>
+    <input type="text" id="findNum" placeholder="e.g. 10,20,30,2" /><button
+      type="button"
+      onclick="maxNumber()"
+    >
+      Find Largest Number
+    </button>
+    <p id="result"></p>
+    <script>
+      function maxNumber() {
+        var num = document.getElementById("findNum").value;
+        var arr = num.split(",").map((number) => parseFloat(number.trim()));
+        var max = null;
+        for (let i = 0; i < arr.length; i++) {
+          if (!isNaN(arr[i])) {
+            if (max === null || max < arr[i]) {
+              max = arr[i];
+            }
+          }
+        }
+        if (max === null) {
+          document.getElementById("result").innerHTML =
+            "Please enter a valid number";
+        } else {
+          document.getElementById("result").innerHTML =
+            "Largest Number is: " + max;
+        }
+      }
+    </script>
+  </body>
+</html>

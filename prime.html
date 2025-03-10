@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prime Number</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      input {
+        padding: 7px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Prime Number</h1>
+      Prime Number: <input type="number" id="number" />
+      <button onclick="isPrime()">Check</button>
+      <p id="result"></p>
+    </div>
+    <script>
+      function isPrime() {
+        let number = document.getElementById("number").value;
+        let isPrime = true;
+        let result = document.getElementById("result");
+
+        if (number == 1) {
+          result.innerHTML = "1 is not a prime number";
+          result.style.color = "red";
+        } else if (number > 1) {
+          for (let i = 2; i < number; i++) {
+            if (number % i === 0) {
+              isPrime = false;
+              break;
+            }
+          }
+          if (isPrime) {
+            result.innerHTML = `${number} is a prime number`;
+            result.style.color = "green";
+          } else {
+            result.innerHTML = `${number} is not a prime number`;
+            result.style.color = "red";
+          }
+        } else {
+          result.innerHTML = "Please enter a positive number";
+          result.style.color = "blue";
+        }
+      }
+    </script>
+  </body>
+</html>
